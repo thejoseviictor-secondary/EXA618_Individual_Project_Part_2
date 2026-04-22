@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `steam_game_dlcs_schema`.`dlcs` (
   `dlc_cover` VARCHAR(192) NOT NULL,
   `dlc_release_date` DATETIME NOT NULL,
   `dlc_actual_price` DECIMAL(4,2) NOT NULL,
-  `access_date` DATETIME NOT NULL,
+  `dlc_access_date` DATETIME NOT NULL,
   `dlc_game_id` INT NOT NULL,
   PRIMARY KEY (`dlc_id`),
   UNIQUE INDEX `dlc_id_UNIQUE` (`dlc_id` ASC) VISIBLE,
