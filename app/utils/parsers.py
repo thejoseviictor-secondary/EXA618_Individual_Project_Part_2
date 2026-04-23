@@ -22,27 +22,19 @@ games_id_collection = [
 
 # Function to set price to float:
 def parse_dlc_actual_price(price_str):
-    print(price_str, flush=True)
-
     if not price_str:
-        print("Not str", flush=True)
         return 0.0
     
     # Free DLCs:
     if "." not in price_str and "," not in price_str:
-        print("Price dont have . or ,", flush=True)
         return 0.0
     
     # Paid DLCs:
     price_str = price_str.replace("$", "").strip()
-    #price_str = price_str.replace(".", "").replace(",", ".")
 
-    print(f"Replaced price {price_str}", flush=True)
-    return float(price_str)
     try:
         return float(price_str)
-    except Exception as e:
-        print(e, flush=True)
+    except:
         return 0.0
 
 # Function to set release date to ISO 8601:
@@ -134,6 +126,7 @@ def collect_steam_game_dlcs_data(game_id):
         inner_div = div.find("div", class_="discount_final_price")
         if inner_div:
             dlc_actual_price = parse_dlc_actual_price(inner_div.get_text(strip=True))
+            print(f"Parsed price {dlc_actual_price}", flush=True)
 
         # Name:
         inner_span = div.find("span", class_="color_created")
