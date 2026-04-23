@@ -22,7 +22,6 @@ games_id_collection = [
 
 # Function to set price to float:
 def parse_dlc_actual_price(price_str):
-    print(price_str, flush=True)
     if not price_str:
         return 0.0
     
