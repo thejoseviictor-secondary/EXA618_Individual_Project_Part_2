@@ -138,6 +138,11 @@ def collect_steam_game_dlcs_data(game_id):
             dlc_release_date = parse_dlc_release_date(inner_span.get_text(strip=True))
 
         print("before database", flush=True)
+        print(f"id {dlc_id}", flush=True)
+        print(f"url {dlc_url}", flush=True)
+        print(f"name {dlc_name}", flush=True)
+        print(f"cover {dlc_cover}", flush=True)
+        print(f"release {dlc_release_date}", flush=True)
 
         # Inserting/Updating the game DLC data into the database:
         if dlc_id and dlc_url and dlc_name and dlc_cover and dlc_release_date:
