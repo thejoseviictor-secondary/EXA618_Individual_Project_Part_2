@@ -27,6 +27,7 @@ def parse_dlc_actual_price(price_str):
     
     # Free DLCs:
     if "." not in price_str and "," not in price_str:
+        print(price_str, flush=True)
         print("Price dont have . or ,", flush=True)
         return 0.0
     
