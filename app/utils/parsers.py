@@ -40,10 +40,9 @@ def parse_dlc_actual_price(price_str):
 # Function to set release date to ISO 8601:
 def parse_dlc_release_date(date_str):
     try:
-        dt = datetime.strptime(date_str, "%d %b, %Y")
+        dt = datetime.strptime(date_str, "%b %d, %Y")
         return dt.strftime("%Y-%m-%d")
     except Exception as e:
-        print(e, flush=True)
         return None
 
 # Parser function to collect game data from "Steam":
@@ -137,13 +136,6 @@ def collect_steam_game_dlcs_data(game_id):
         inner_span = div.find("span", class_="curator_review_date")
         if inner_span:
             dlc_release_date = parse_dlc_release_date(inner_span.get_text(strip=True))
-
-        print("before database", flush=True)
-        print(f"id {dlc_id}", flush=True)
-        print(f"url {dlc_url}", flush=True)
-        print(f"name {dlc_name}", flush=True)
-        print(f"cover {dlc_cover}", flush=True)
-        print(f"release {dlc_release_date}", flush=True)
 
         # Inserting/Updating the game DLC data into the database:
         if dlc_id and dlc_url and dlc_name and dlc_cover and dlc_release_date:
