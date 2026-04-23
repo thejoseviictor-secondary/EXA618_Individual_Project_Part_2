@@ -25,6 +25,7 @@ def parse_dlc_actual_price(price_str):
     print(price_str, flush=True)
 
     if not price_str:
+        print("Not str", flush=True)
         return 0.0
     
     # Free DLCs:
