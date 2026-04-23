@@ -22,17 +22,18 @@ games_id_collection = [
 
 # Function to set price to float:
 def parse_dlc_actual_price(price_str):
+    print(price_str, flush=True)
+
     if not price_str:
         return 0.0
     
     # Free DLCs:
     if "." not in price_str and "," not in price_str:
-        print(price_str, flush=True)
         print("Price dont have . or ,", flush=True)
         return 0.0
     
     # Paid DLCs:
-    price_str = price_str.replace("€", "").strip()
+    price_str = price_str.replace("$", "").strip()
     price_str = price_str.replace(".", "").replace(",", ".")
 
     try:
