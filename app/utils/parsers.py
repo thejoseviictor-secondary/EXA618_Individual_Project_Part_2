@@ -38,7 +38,7 @@ def parse_dlc_actual_price(price_str):
     #price_str = price_str.replace(".", "").replace(",", ".")
 
     print(f"Replaced price {price_str}", flush=True)
-
+    return float(price_str)
     try:
         return float(price_str)
     except Exception as e:
