@@ -126,7 +126,6 @@ def collect_steam_game_dlcs_data(game_id):
         inner_div = div.find("div", class_="discount_final_price")
         if inner_div:
             dlc_actual_price = parse_dlc_actual_price(inner_div.get_text(strip=True))
-            print(f"Parsed price {dlc_actual_price}", flush=True)
 
         # Name:
         inner_span = div.find("span", class_="color_created")
