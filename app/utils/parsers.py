@@ -42,7 +42,8 @@ def parse_dlc_release_date(date_str):
     try:
         dt = datetime.strptime(date_str, "%d %b, %Y")
         return dt.strftime("%Y-%m-%d")
-    except:
+    except Exception as e:
+        print(e, flush=True)
         return None
 
 # Parser function to collect game data from "Steam":
