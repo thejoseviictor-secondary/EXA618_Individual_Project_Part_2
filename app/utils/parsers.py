@@ -142,5 +142,7 @@ def collect_steam_game_dlcs_data(game_id):
             found_game_dlc, err = is_game_dlc_in_database(dlc_id)
             if found_game_dlc and not err:
                 update_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_release_date, dlc_actual_price, todays_date, game_id)
+                print("dlc updated", flush=True)
             else:
                 insert_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_release_date, dlc_actual_price, todays_date, game_id)
+                print("dlc inserted", flush=True)
