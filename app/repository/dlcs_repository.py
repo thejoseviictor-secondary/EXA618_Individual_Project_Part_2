@@ -98,7 +98,6 @@ def insert_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_releas
 
         return True, None
     except mysql.connector.Error as err:
-        print(err, flush=True)
         return False, err
     
 # Function to update a game DLC data in the database:
@@ -127,5 +126,4 @@ def update_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_releas
 
         return True, None
     except mysql.connector.Error as err:
-        print(err, flush=True)
         return False, err
