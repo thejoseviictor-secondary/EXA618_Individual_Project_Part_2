@@ -86,7 +86,7 @@ def insert_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_releas
 
         values = (
             int(dlc_id), str(dlc_url), str(dlc_name), 
-            str(dlc_cover), dlc_release_date, float(dlc_actual_price), 
+            str(dlc_cover), dlc_release_date, dlc_actual_price, 
             dlc_access_date, int(dlc_game_id)
         )
 
@@ -98,6 +98,7 @@ def insert_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_releas
 
         return True, None
     except mysql.connector.Error as err:
+        print(err, flush=True)
         return False, err
     
 # Function to update a game DLC data in the database:
@@ -114,7 +115,7 @@ def update_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_releas
         """
         values = (
             int(dlc_id), str(dlc_url), str(dlc_name), 
-            str(dlc_cover), dlc_release_date, float(dlc_actual_price), 
+            str(dlc_cover), dlc_release_date, dlc_actual_price, 
             dlc_access_date, int(dlc_game_id)
         )
 
@@ -126,4 +127,5 @@ def update_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_releas
 
         return True, None
     except mysql.connector.Error as err:
+        print(err, flush=True)
         return False, err
