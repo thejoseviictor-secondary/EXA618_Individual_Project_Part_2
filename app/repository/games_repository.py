@@ -43,7 +43,10 @@ def get_games_data_in_database():
         cursor.close()
         conn.close()
 
-        return games, None
+        if len(games) > 0:
+            return games, None
+        else:
+            return None, True
     except mysql.connector.Error as err:
         return False, err
 

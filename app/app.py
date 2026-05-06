@@ -19,6 +19,7 @@ def get_games():
     if games or not err:
         return jsonify(games)
     else:
+        update_games_data_async()
         print(err, flush=True)
         return jsonify({"error": "Erro interno ao buscar jogos!"}), HTTPStatus.INTERNAL_SERVER_ERROR
 
@@ -34,6 +35,7 @@ def get_game_dlcs_ordered_by_price(game_id):
         
         return jsonify(game_dlcs_data)
     else:
+        update_dlcs_data_async(game_id)
         print(err, flush=True)
         return jsonify({"error": "Erro interno ao buscar DLCs deste jogo!"}), HTTPStatus.INTERNAL_SERVER_ERROR
 
@@ -49,6 +51,7 @@ def get_game_dlcs_ordered_by_release_date(game_id):
         
         return jsonify(game_dlcs_data)
     else:
+        update_dlcs_data_async(game_id)
         print(err, flush=True)
         return jsonify({"error": "Erro interno ao buscar DLCs deste jogo!"}), HTTPStatus.INTERNAL_SERVER_ERROR
 
