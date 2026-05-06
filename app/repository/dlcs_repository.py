@@ -45,7 +45,10 @@ def get_game_dlcs_data_in_database_ordered_by_price(game_id):
         cursor.close()
         conn.close()
 
-        return game_dlcs, None
+        if len(game_dlcs) > 0:
+            return game_dlcs, None
+        else:
+            return None, True
     except mysql.connector.Error as err:
         return None, err
 
@@ -68,7 +71,10 @@ def get_game_dlcs_data_in_database_ordered_by_release_date(game_id):
         cursor.close()
         conn.close()
 
-        return game_dlcs, None
+        if len(game_dlcs) > 0:
+            return game_dlcs, None
+        else:
+            return None, True
     except mysql.connector.Error as err:
         return None, err
 
