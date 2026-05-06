@@ -113,9 +113,9 @@ def update_game_dlc_in_database(dlc_id, dlc_url, dlc_name, dlc_cover, dlc_releas
             WHERE dlc_id = %s
         """
         values = (
-            int(dlc_id), str(dlc_url), str(dlc_name), 
-            str(dlc_cover), dlc_release_date, dlc_actual_price, 
-            dlc_access_date, int(dlc_game_id)
+            str(dlc_url), str(dlc_name), str(dlc_cover),
+            dlc_release_date, dlc_actual_price, dlc_access_date,
+            int(dlc_game_id), int(dlc_id)
         )
 
         cursor.execute(sql, values)

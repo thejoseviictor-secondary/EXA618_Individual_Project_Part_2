@@ -80,7 +80,7 @@ def update_game_in_database(game_id, game_url, game_name, game_cover):
             SET game_url = %s, game_name = %s, game_cover = %s 
             WHERE game_id = %s
         """
-        values = (int(game_id), str(game_url), str(game_name), str(game_cover), int(game_id))
+        values = (str(game_url), str(game_name), str(game_cover), int(game_id))
 
         cursor.execute(sql, values)
         conn.commit()
