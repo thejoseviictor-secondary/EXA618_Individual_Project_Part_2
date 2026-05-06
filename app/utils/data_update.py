@@ -10,6 +10,8 @@ def is_dlc_data_more_than_one_day_old(last_access_date):
     if not last_access_date:
         return True
     
+    print(datetime.now(timezone.utc))
+    print(last_access_date)
     return datetime.now(timezone.utc) - last_access_date > timedelta(days=1)
 
 def update_games_data_async():
