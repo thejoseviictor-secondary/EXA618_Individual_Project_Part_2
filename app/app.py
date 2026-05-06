@@ -27,6 +27,8 @@ def get_games():
 def get_game_dlcs_ordered_by_price(game_id):    
     game_dlcs_data, err = get_game_dlcs_data_in_database_ordered_by_price(game_id)
     if game_dlcs_data or not err:
+        print(game_dlcs_data, flush=True)
+        
         dlc_access_date = game_dlcs_data[0]["dlc_access_date"]
         if is_dlc_data_more_than_one_day_old(dlc_access_date):
             update_games_data_async()
