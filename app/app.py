@@ -15,7 +15,7 @@ app = Flask(__name__)
 # Route to get games from Steam and database:
 @app.route('/get_games', methods=['GET'])
 def get_games():
-    collect_steam_games_data()
+    #collect_steam_games_data()
 
     games, err = get_games_data_in_database()
     if games or not err:
@@ -27,7 +27,7 @@ def get_games():
 # Route to get game DLCs data on database, ordered by price:
 @app.route('/get_game_dlcs_ordered_by_price/<game_id>', methods=['GET'])
 def get_game_dlcs_ordered_by_price(game_id):
-    collect_steam_game_dlcs_data(game_id)
+    #collect_steam_game_dlcs_data(game_id)
     
     game_dlcs_data, err = get_game_dlcs_data_in_database_ordered_by_price(game_id)
     if game_dlcs_data or not err:
@@ -39,7 +39,7 @@ def get_game_dlcs_ordered_by_price(game_id):
 # Route to get game DLCs data on database, ordered by release date:
 @app.route('/get_game_dlcs_ordered_by_release_date/<game_id>', methods=['GET'])
 def get_game_dlcs_ordered_by_release_date(game_id):
-    collect_steam_game_dlcs_data(game_id)
+    #collect_steam_game_dlcs_data(game_id)
 
     game_dlcs_data, err = get_game_dlcs_data_in_database_ordered_by_release_date(game_id)
     if game_dlcs_data or not err:
