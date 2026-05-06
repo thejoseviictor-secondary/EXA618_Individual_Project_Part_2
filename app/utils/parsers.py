@@ -55,7 +55,7 @@ def collect_steam_games_data():
             headers={"User-Agent": "Mozilla/5.0"}
         )
 
-        page = urllib.request.urlopen(req)
+        page = urllib.request.urlopen(req, timeout=10)
         html = str(page.read().decode("utf-8"))
 
         soup = BeautifulSoup(html, "html.parser")
@@ -92,7 +92,7 @@ def collect_steam_game_dlcs_data(game_id):
         headers={"User-Agent": "Mozilla/5.0"}
     )
 
-    page = urllib.request.urlopen(req)
+    page = urllib.request.urlopen(req, timeout=10)
     html = str(page.read().decode("utf-8"))
 
     soup = BeautifulSoup(html, "html.parser")
