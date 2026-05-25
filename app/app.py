@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from http import HTTPStatus
 from dotenv import load_dotenv
 from utils.data_update import is_dlc_data_more_than_one_day_old, update_games_data_async, update_dlcs_data_async
@@ -11,6 +12,9 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+
+# Allowing access from the front-end:
+CORS(app, origins=[os.getenv("FRONT_END_ORIGIN_ADDRESS")])
 
 # Route to get games from Steam and database:
 @app.route('/get_games', methods=['GET'])
